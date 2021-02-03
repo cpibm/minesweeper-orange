@@ -9,7 +9,11 @@ class Board {
 	}
 
 	print() {
-		return '+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+\n| | | |\n+-+-+-+';
+		const rowSeparator = `+${Array(this.columns).fill('-').join('+')}+\n`;
+		const rowTemplate = `|${Array(this.columns).fill(' ').join('|')}|\n`;
+		const rows = Array(this.rows).fill(rowTemplate);
+		const renderedBoard = rowSeparator + rows.join(rowSeparator) + rowSeparator.trim();
+		return renderedBoard;
 	}
 }
 
